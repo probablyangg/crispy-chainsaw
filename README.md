@@ -9,6 +9,8 @@
 
 ### .env template
 
+```
 export ADMIN_PK=
 export ADMIN=
 export INFURA=
+```
