@@ -20,7 +20,10 @@ async function main() {
   // console.log("Greeter deployed to:", greeter.address);
   
   const ChubbyUprising = await hre.ethers.getContractFactory("ChubbyUprising");
-  const chubbyUprising = await ChubbyUprising.deploy("QmUXLHcjFEtquVX2ikdWuiPXhWa4DYrRbymhoAhf1icp9A");
+  const chubbyUprising = await ChubbyUprising.deploy(
+    "QmUXLHcjFEtquVX2ikdWuiPXhWa4DYrRbymhoAhf1icp9A",
+    "0x1DB61FC42a843baD4D91A2D788789ea4055B8613"
+  );
   await chubbyUprising.deployed();
   console.log("Chubby uprising deployed to:", chubbyUprising.address);
 }
