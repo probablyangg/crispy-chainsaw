@@ -13,4 +13,6 @@
 export ADMIN_PK=
 export ADMIN=
 export INFURA=
+export REPORT_GAS=
+export COINMARKETCAP=
 ```
