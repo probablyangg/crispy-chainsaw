@@ -1,0 +1,32 @@
+{
+	"name": "ethereum",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"format-check": "prettier --check .",
+		"format": "prettier --write .",
+		"test": "npx hardhat test",
+		"compile": "npx hardhat compile",
+		"deploy-localhost": "npx hardhat run scripts/deploy.js --network localhost",
+		"deploy-rinkeby": "npx hardhat run scripts/deploy.js --network rinkeby",
+		"node": "npx hardhat node",
+		"prettier-watch": "npx onchange \"**/*\" -- prettier --write --ignore-unknown {{changed}}"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@nomiclabs/hardhat-ethers": "^2.0.2",
+		"@nomiclabs/hardhat-waffle": "^2.0.1",
+		"@openzeppelin/contracts": "^4.1.0",
+		"chai": "^4.3.4",
+		"ethereum-waffle": "^3.4.0",
+		"ethers": "^5.3.1",
+		"fs": "*",
+		"hardhat": "^2.4.1",
+		"hardhat-gas-reporter": "^1.0.4",
+		"ipfs-http-client": "^50.1.2",
+		"prettier": "2.3.1",
+		"uint8arrays": "^2.1.5"
+	}
+}
