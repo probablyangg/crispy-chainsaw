@@ -1,5 +1,4 @@
 const { expect } = require("chai");
-// const { ethers } = require("ethers");
 
 describe("chubbyUprising is able to receive & mint a chubby", async function () {
   let dummyChubby, chubbyUprising, CID, u = [], alice;
