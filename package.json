@@ -1,5 +1,5 @@
 {
-	"name": "ethereum",
+	"name": "chubbies-uprising",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
@@ -11,7 +11,8 @@
 		"deploy-localhost": "npx hardhat run scripts/deploy.js --network localhost",
 		"deploy-rinkeby": "npx hardhat run scripts/deploy.js --network rinkeby",
 		"node": "npx hardhat node",
-		"prettier-watch": "npx onchange \"**/*\" -- prettier --write --ignore-unknown {{changed}}"
+		"prettier-watch": "npx onchange \"**/*\" -- prettier --write --ignore-unknown {{changed}}",
+    "flatten": "npx hardhat flatten > flattened.sol"
 	},
 	"author": "",
 	"license": "ISC",
@@ -19,6 +20,7 @@
 		"@nomiclabs/hardhat-ethers": "^2.0.2",
 		"@nomiclabs/hardhat-waffle": "^2.0.1",
 		"@openzeppelin/contracts": "^4.1.0",
+		"@pinata/sdk": "^1.1.23",
 		"chai": "^4.3.4",
 		"ethereum-waffle": "^3.4.0",
 		"ethers": "^5.3.1",
