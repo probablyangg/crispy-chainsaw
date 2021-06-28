@@ -19,11 +19,11 @@ async function main() {
 	// await greeter.deployed();
 	// console.log("Greeter deployed to:", greeter.address);
 
+	const Chubbies_Contract = "0x1DB61FC42a843baD4D91A2D788789ea4055B8613";
+	const CID = "QmQAaMz69H9eutehEk43GnL9an1K2RGk4Cw8p12EaRc1nA";
+
 	const ChubbyUprising = await hre.ethers.getContractFactory("ChubbyUprising");
-	const chubbyUprising = await ChubbyUprising.deploy(
-		"QmUXLHcjFEtquVX2ikdWuiPXhWa4DYrRbymhoAhf1icp9A",
-		"0x1DB61FC42a843baD4D91A2D788789ea4055B8613",
-	);
+	const chubbyUprising = await ChubbyUprising.deploy(CID, Chubbies_Contract);
 	await chubbyUprising.deployed();
 	console.log("Chubby uprising deployed to:", chubbyUprising.address);
 }
