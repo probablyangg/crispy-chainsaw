@@ -10,9 +10,18 @@
 ### .env template
 
 ```
+# account to deploy contracts
 export ADMIN_PK=
 export ADMIN=
+
+# infura key for eth network
 export INFURA=
+
+# hardhat gas reporting after tests
 export REPORT_GAS=
 export COINMARKETCAP=
+
+# ipfs local daemon endpoint
+export IPFS_LOCAL_ENDPOINT=http://localhost:5001
+
 ```
