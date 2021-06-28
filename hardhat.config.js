@@ -35,13 +35,13 @@ module.exports = {
 	},
 	solidity: {
 		version: "0.8.6",
-  },
-  gasReporter: {
-    enabled: (process.env.REPORT_GAS) == "true" ? true : false,
-    showTimeSpent: true,
-    excludeContracts: ['Greeter.sol'],
-    currency: 'USD',
-    coinmarketcap: process.env.COINMARKETCAP
-    // gasPrice: 21
-  }
+	},
+	gasReporter: {
+		enabled: process.env.REPORT_GAS == "true" ? true : false,
+		showTimeSpent: true,
+		excludeContracts: ["Greeter.sol"],
+		currency: "USD",
+		coinmarketcap: process.env.COINMARKETCAP,
+		// gasPrice: 21
+	},
 };

@@ -17,15 +17,15 @@ async function main() {
 	// const Greeter = await hre.ethers.getContractFactory("Greeter");
 	// const greeter = await Greeter.deploy("Hello, Hardhat!");
 	// await greeter.deployed();
-  // console.log("Greeter deployed to:", greeter.address);
-  
-  const ChubbyUprising = await hre.ethers.getContractFactory("ChubbyUprising");
-  const chubbyUprising = await ChubbyUprising.deploy(
-    "QmUXLHcjFEtquVX2ikdWuiPXhWa4DYrRbymhoAhf1icp9A",
-    "0x1DB61FC42a843baD4D91A2D788789ea4055B8613"
-  );
-  await chubbyUprising.deployed();
-  console.log("Chubby uprising deployed to:", chubbyUprising.address);
+	// console.log("Greeter deployed to:", greeter.address);
+
+	const ChubbyUprising = await hre.ethers.getContractFactory("ChubbyUprising");
+	const chubbyUprising = await ChubbyUprising.deploy(
+		"QmUXLHcjFEtquVX2ikdWuiPXhWa4DYrRbymhoAhf1icp9A",
+		"0x1DB61FC42a843baD4D91A2D788789ea4055B8613",
+	);
+	await chubbyUprising.deployed();
+	console.log("Chubby uprising deployed to:", chubbyUprising.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
