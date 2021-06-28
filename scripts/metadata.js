@@ -3,12 +3,16 @@
  * Fetch all 10,000 chubbies from CID: QmXDvsnPyo9iPQHv7KtoDzjp57FMTi7cvkFFuWUApY8kro
  * modify metadata for chubbies uprising
  * store and return a new CID - localhost
+ * Steps:
+ *  - start local ipfs daemon
+ *  - run this script
+ *  - pin the final CID to a gateway for persistence
  */
 
 const path = require("path");
 const fs = require("fs");
-const { create, urlSource, CI } = require("ipfs-http-client");
-const ipfs = create("http://localhost:5001");
+const { create } = require("ipfs-http-client");
+const ipfs = create(process.env.IPFS_LOCAL_ENDPOINT);
 
 const uint8ArrayToString = require("uint8arrays/to-string");
 const uint8ArrayConcat = require("uint8arrays/concat");
@@ -30,8 +34,9 @@ const fetch = async () => {
 	let errors = { e: [] },
 		e = 0,
 		c = 0;
+
 	for await (const file of ipfs.get(ChubbiesCID)) {
-		// console.log(file.type, file.path)
+		console.log(file.type, file.path);
 		if (!file.content) continue;
 		const content = [];
 		for await (const chunk of file.content) {
@@ -67,8 +72,9 @@ const fetch = async () => {
 	console.log("errors", e);
 	console.log("stored", c);
 	await storeJson(errors, errorPath + "/e.json");
+	return e;
 };
-const store = async () => {
+const addAndPin = async () => {
 	let files = [];
 	for (let i = 0; i < 10000; i++) {
 		let filePath = path.join(__dirname, "data", "metadata", i + ".json");
@@ -78,16 +84,17 @@ const store = async () => {
 			content,
 		});
 	}
-	for await (const file of ipfs.addAll(files, { wrapWithDirectory: true })) {
-		console.log(file);
-		// directory: QmUXLHcjFEtquVX2ikdWuiPXhWa4DYrRbymhoAhf1icp9A
-	}
-	// console.log (d)
+	const d = await ipfs.add(files, { wrapWithDirectory: true });
+	console.log(d);
 };
 
 async function main() {
-	// await fetch()
-	await store();
+	let e = await fetch();
+	if (e == 0) {
+		await addAndPin();
+	} else {
+		console.log("resolve errors to add files to ipfs");
+	}
 }
 
 main();
